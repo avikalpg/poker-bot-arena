@@ -1,78 +1,122 @@
-# megaAnalytics
-Analytics at Mega
+# Poker Bot Arena
 
-This repository is used for all exploratory analysis to be done at GetMega.
+**Poker Bot Arena** is an open-source platform that allows players to engage in Texas Hold'em Poker with both human and AI opponents. This project combines the strengths of an existing online poker game with AI models to provide a zero-risk environment for learning and honing poker skills.
 
-## Guidelines
-In order to keep the repository clean, we utilize two major additions to our version control system.
-1. DVC: Data Version Control
-2. JupyText: Effective version control for `.ipynb` files
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### DVC
-DVC version controls the dataset that you working with along with the Git version controlling of the code that you are working on.
-This helps a lot in reproducing models and model outputs from any point in time.
-Please read the source materials provided by [DVC Website](https://dvc.org) to get accustomed to the philosophy of this product and how it should be used.
+## Introduction
 
-For any questions regarding this, check the internal StackOverflow or ask among the members of the data science chapter.
+Poker Bot Arena is designed to facilitate learning and practicing Texas Hold'em Poker. With AI bots of varying proficiency levels, players can experience a realistic poker game without any financial risk. The project leverages existing open-source repositories for the frontend and backend while integrating AI models for the gameplay logic.
 
-#### Setting up a new project folder
-Steps:
-1. Create a new folder for the project you want to start working on.
-2. Navigate to the created folder in terminal and run the following command:
-```
-dvc init --subdir
-```
-3. `data-science-mega` is the bucket in which we store the data files on GCS. Add the name of the folder(or a similar name) you created in the command below and execute it:
-```
-dvc remote add -d myremote gs://data-science-mega/folder-name
-```
-4. Run the following commands to upload the data files on GCP:
-```
-dvc add file-path
-dvc push
-```
+## Features
 
-Note:
-If you're unable to upload the files on GCP because of authentication error, run the following commands in a separate terminal:
-```
-gcloud auth login
-gcloud auth application-default login
-```
+- Play Texas Hold'em Poker with human players and AI bots.
+- Customizable AI proficiency levels for different learning experiences.
+- Interactive UI built with VueJS.
+- Robust backend powered by NodeJS and MongoDB.
+- Seamless integration of Flask server for AI logic.
 
-#### Protocol
-The protocol we will follow with DVC is that we will have a single DVC for each project. Hence, all the relevant data is always in the same version tree. At the same time, all the data that is completely unrelated is not forcefully downloaded for every person.
+## Installation
 
-### JupyText
-Jupytext allows Jupyter to open and save notebooks(`.ipynb` files) as text files(`.py` files). Once we associate a notebook with a `.py` file, only the code blocks will be version controlled, not the output of the cells.
-The generated python file needs to be committed and the notebook will be ignored by Git.
-Read the source materials provided by [https://jupytext.readthedocs.io/en/latest/] to know how it should be used.
+### Prerequisites
 
-Steps:
-1. Open the Jupyter Notebook you want to work on.
-2. Navigate File -> Jupytext -> enable "Pair Notebook with Percent Script" 
-3. A `.py` file will be generated(might take up to 30 seconds), close the `.ipynb` file and open the python file; make your changes in the same and commit it.
+- NodeJS
+- MongoDB
+- Python 3
 
-## Setup
-All the work in this repository is done in *Python 3*. So make sure that you use the same.
-For this guide, we will be using `python3` and `pip3` commands to signify the same. You can change the command names according to your system.
+### Steps
 
-It is recommended that you work in a virtual environment. It will make it easier to update the `requirements.txt` when you add a new python library to the project.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/poker-bot-arena.git
+   cd poker-bot-arena
+   ```
+2. **Initialize submodules:**
+   ```bash
+   git submodule update --init --recursive
+   ```
+3. **Install dependencies for the interface:**
+  a. For `poker-api`:
+   ```bash
+   cd interfaces/poker-api
+   npm install
+   ```
+  b. For `poker-ui`:
+   ```bash
+   cd ../poker-ui
+   npm install
+  ```
+4. **Setup the AI bot server:**
+  It is recommended that you work in a virtual environment. It will make it easier to update the requirements.txt when you add a new Python library to the project.
 
-Here is the command to install virtual environment:
-```
-pip3 install virtualenv
-```
+  a. **Install virtual environment:**
+  ```bash
+  pip3 install virtualenv
+  ```
 
-Here are the commands to get started after cloning this repository:
-```
-python3 -m venv .venv
-source .venv/bin/activate
-pip3 install -r requirements.txt
-```
+  b. **Set up the virtual environment:**
 
-At this point, all your python dependencies will start getting installed.
-Once that is done, navigate to folder corresponding to the project that you are working in.
-Each such folder should contain a `.dvc` folder in it. Run the following command to download the data corresponding to the project:
-```
-dvc pull
-```
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip3 install -r requirements.txt
+  ```
+
+### DVC (optional)
+Poker Bot Arena uses DVC (Data Version Control) to version control the dataset along with the code. If you are not working on building an ML model for the AI bot, you can skip this step.
+
+1. **Initialize DVC:**
+
+  ```bash
+  dvc init --subdir
+  ```
+2. **Add remote storage (for example, Google Cloud Storage):**
+
+  ```bash
+  dvc remote add -d myremote gs://data-science-mega/poker-bot-arena
+  ```
+3. **Upload data files:**
+
+  ```bash
+  dvc add file-path
+  dvc push
+  ```
+  Note: If you're unable to upload the files due to authentication error, run the following commands in a separate terminal:
+  
+  ```bash
+  gcloud auth login
+  gcloud auth application-default login
+  ```
+4. **Pull data using DVC:**
+
+  ```bash
+  dvc pull
+  ```
+
+## Usage
+1. Follow the instructions in the [`poker-api` README](https://github.com/avikalpg/poker-api) to start the MongoDB and launch the backend server.
+2. Follow the instructions in the [`poker-ui` README](https://github.com/avikalpg/poker-ui) to start the VueJS frontend.
+3. Follow the instructions in the [`bots` README](https://github.com/avikalpg/poker-bot-arena/blob/main/bots/README.md) to start the Flask server that enables the AI bots logic.
+
+Access the application: Open your browser and go to http://localhost:8080
+
+## Contributing
+Contributions are welcome! Please read the [Contributing Guidelines] for more information.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE] file for details.
+
+## Contact
+Author: Avikalp Gupta
+
+Telegram: [@avikalp]([url](http://t.me/avikalp))
+
+## Demo
+[![Watch the video](https://img.youtube.com/vi/JmiUuAhFuOk/0.jpg)](https://www.youtube.com/watch?v=JmiUuAhFuOk)
