@@ -108,7 +108,7 @@ Poker Bot Arena uses DVC (Data Version Control) to version control the dataset a
 Access the application: Open your browser and go to http://localhost:8080
 
 ## Contributing
-Contributions are welcome! Please read the [Contributing Guidelines] for more information.
+Contributions are welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
 ## License
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
