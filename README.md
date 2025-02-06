@@ -89,7 +89,7 @@ Poker Bot Arena uses DVC (Data Version Control) to version control the dataset a
   dvc push
   ```
   Note: If you're unable to upload the files due to authentication error, run the following commands in a separate terminal:
-  
+
   ```bash
   gcloud auth login
   gcloud auth application-default login
@@ -111,7 +111,7 @@ Access the application: Open your browser and go to http://localhost:8080
 Contributions are welcome! Please read the [Contributing Guidelines] for more information.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE] file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 Author: Avikalp Gupta
