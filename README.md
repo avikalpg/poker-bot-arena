@@ -116,7 +116,9 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## Contact
 Author: Avikalp Gupta
 
-Telegram: [@avikalp]([url](http://t.me/avikalp))
+Telegram: [@avikalp](http://t.me/avikalp)
 
 ## Demo
-[![Watch the video](https://img.youtube.com/vi/JmiUuAhFuOk/0.jpg)](https://www.youtube.com/watch?v=JmiUuAhFuOk)
+<a href="https://www.youtube.com/watch?v=JmiUuAhFuOk" target="_blank">
+  <img src="https://img.youtube.com/vi/JmiUuAhFuOk/maxresdefault.jpg" alt="Watch the video">
+</a>
