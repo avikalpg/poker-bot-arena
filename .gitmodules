@@ -1,0 +1,6 @@
+[submodule "interface/poker-api"]
+	path = interface/poker-api
+	url = git@github.com:avikalpg/poker-api.git
+[submodule "interface/poker-ui"]
+	path = interface/poker-ui
+	url = git@github.com:avikalpg/poker-ui.git

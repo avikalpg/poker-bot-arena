@@ -1,0 +1,10 @@
+**/.DS_Store
+interface/data/
+*.csv
+*.xlsx
+*.xls
+*.ipynb
+.ipynb_checkpoints
+.venv/
+*.pkl
+*.pyc
